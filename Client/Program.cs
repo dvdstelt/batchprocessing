@@ -18,8 +18,10 @@ namespace Client
 
         static async Task MainAsync()
         {
+            var numberOfInvoices = 150;
+
             Console.Title = "Client";
-            Console.WriteLine("Press a key to start a batch of 1000 customers.");
+            Console.WriteLine($"Press a key to start a batch of {numberOfInvoices} customers.");
             Console.ReadKey();
 
             var endpointConfiguration = new EndpointConfiguration("Client");
@@ -34,7 +36,7 @@ namespace Client
             var sendOnlyEndpoint = await Endpoint.Start(endpointConfiguration);
 
             var customerIds = new List<Guid>();
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < numberOfInvoices; i++)
             {
                 customerIds.Add(Guid.NewGuid());
             }
